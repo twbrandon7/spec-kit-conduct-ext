@@ -21,12 +21,8 @@ requires:
 provides:
   commands:
     - name: "speckit.orchestration.run"
-      file: "commands/run.md"
-      description: "Run the full spec-driven development workflow end-to-end"
-      aliases: ["speckit.orchestration"]
-    - name: "speckit.orchestration.plan"
-      file: "commands/plan.md"
-      description: "Orchestrate the planning phase: specify → plan → tasks"
+      file: "commands/orchestration.md"
+      description: "Orchestrates complex spec-kit phases by planning and delegating to specialized sub-agents."
 
 tags:
   - "orchestration"
