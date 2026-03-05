@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background: #1a1a2e;
+        color: #e0e0e0;
+      }
+      .timer-container {
+        text-align: center;
+        padding: 2rem;
+      }
+      #mode-label {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #a0c4ff;
+      }
+      #time-display {
+        font-size: 5rem;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.05em;
+        margin: 1rem 0;
+      }
+      .controls {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin: 1.5rem 0;
+      }
+      button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: opacity 0.2s;
+      }
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      #start-btn { background: #4caf50; color: #fff; }
+      #pause-btn { background: #ff9800; color: #fff; }
+      #reset-btn { background: #f44336; color: #fff; }
+      .daily-counter {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        color: #aaa;
+      }
+      #daily-counter {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffd166;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timer-container">
+      <div id="mode-label">Focus</div>
+      <div id="time-display">25:00</div>
+      <div class="controls">
+        <button id="start-btn" type="button">Start</button>
+        <button id="pause-btn" type="button">Pause</button>
+        <button id="reset-btn" type="button">Reset</button>
+      </div>
+      <div class="daily-counter">
+        Today&apos;s focus sessions: <span id="daily-counter">0</span>
+      </div>
+    </div>
+    <script type="module" src="/src/app.ts"></script>
+  </body>
+</html>
