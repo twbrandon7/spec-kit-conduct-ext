@@ -31,7 +31,9 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] All toy app source paths are rooted under `tests/` (no root `src/` usage for toy code)
+- [ ] Orchestration assets and toy app code are clearly separated by repository boundaries
+- [ ] Spec, plan, and task artifacts remain consistent with constitutional principles
 
 ## Project Structure
 
@@ -47,7 +49,7 @@ specs/[###-feature]/
 └── tasks.md             # Phase 2 output (/speckit.tasks command - NOT created by /speckit.plan)
 ```
 
-### Source Code (repository root)
+### Source Code (tests sandbox)
 <!--
   ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
   for this feature. Delete unused options and expand the chosen structure with
@@ -57,38 +59,35 @@ specs/[###-feature]/
 
 ```text
 # [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
-
 tests/
+├── toy-app/
+│   ├── models/
+│   ├── services/
+│   ├── cli/
+│   └── lib/
 ├── contract/
 ├── integration/
 └── unit/
 
 # [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
+tests/
+├── toy-app/
+│   ├── backend/
+│   │   ├── models/
+│   │   ├── services/
+│   │   └── api/
+│   └── frontend/
+│       ├── components/
+│       ├── pages/
+│       └── services/
+└── integration/
 
 # [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+tests/
+├── toy-app/
+│   ├── api/
+│   └── ios/ or android/
+└── integration/
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real
