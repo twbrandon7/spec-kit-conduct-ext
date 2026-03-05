@@ -17,14 +17,14 @@
 
 **Purpose**: Project initialization and baseline tooling under `tests/toy-app/`
 
-- [ ] T001 Create toy app directory structure in `tests/toy-app/`
-- [ ] T002 Initialize npm project and scripts in `tests/toy-app/package.json`
-- [ ] T003 [P] Configure TypeScript compiler in `tests/toy-app/tsconfig.json`
-- [ ] T004 [P] Configure Vite dev/build setup in `tests/toy-app/vite.config.ts`
-- [ ] T005 [P] Configure Vitest in `tests/toy-app/vitest.config.ts`
-- [ ] T006 [P] Configure Playwright for browser integration tests in `tests/toy-app/playwright.config.ts`
-- [ ] T007 [P] Create base HTML shell and app mount points in `tests/toy-app/index.html`
-- [ ] T008 [P] Add starter entrypoint and bootstrapping wire-up in `tests/toy-app/src/app.ts`
+- [X] T001 Create toy app directory structure in `tests/toy-app/`
+- [X] T002 Initialize npm project and scripts in `tests/toy-app/package.json`
+- [X] T003 [P] Configure TypeScript compiler in `tests/toy-app/tsconfig.json`
+- [X] T004 [P] Configure Vite dev/build setup in `tests/toy-app/vite.config.ts`
+- [X] T005 [P] Configure Vitest in `tests/toy-app/vitest.config.ts`
+- [X] T006 [P] Configure Playwright for browser integration tests in `tests/toy-app/playwright.config.ts`
+- [X] T007 [P] Create base HTML shell and app mount points in `tests/toy-app/index.html`
+- [X] T008 [P] Add starter entrypoint and bootstrapping wire-up in `tests/toy-app/src/app.ts`
 
 ---
 
@@ -34,14 +34,14 @@
 
 **⚠️ CRITICAL**: No user story work should begin until this phase is complete
 
-- [ ] T009 Define shared timer constants and mode durations in `tests/toy-app/src/constants.ts`
-- [ ] T010 [P] Define shared TypeScript domain types for session/cycle/daily summary in `tests/toy-app/src/types.ts`
-- [ ] T011 Implement `TimerSession` state model and transition guards in `tests/toy-app/src/timer-model.ts`
-- [ ] T012 Implement `CycleProgress` state model and long-break trigger logic in `tests/toy-app/src/cycle-model.ts`
-- [ ] T013 Implement `DailyFocusSummary` storage adapter with date rollover handling in `tests/toy-app/src/daily-summary.ts`
-- [ ] T014 Implement timestamp-based ticker utility to avoid drift in `tests/toy-app/src/ticker.ts`
-- [ ] T015 [P] Implement notification service with permission-aware fallback in `tests/toy-app/src/notifications.ts`
-- [ ] T016 [P] Implement audio chime service with graceful error handling in `tests/toy-app/src/alerts.ts`
+- [X] T009 Define shared timer constants and mode durations in `tests/toy-app/src/constants.ts`
+- [X] T010 [P] Define shared TypeScript domain types for session/cycle/daily summary in `tests/toy-app/src/types.ts`
+- [X] T011 Implement `TimerSession` state model and transition guards in `tests/toy-app/src/timer-model.ts`
+- [X] T012 Implement `CycleProgress` state model and long-break trigger logic in `tests/toy-app/src/cycle-model.ts`
+- [X] T013 Implement `DailyFocusSummary` storage adapter with date rollover handling in `tests/toy-app/src/daily-summary.ts`
+- [X] T014 Implement timestamp-based ticker utility to avoid drift in `tests/toy-app/src/ticker.ts`
+- [X] T015 [P] Implement notification service with permission-aware fallback in `tests/toy-app/src/notifications.ts`
+- [X] T016 [P] Implement audio chime service with graceful error handling in `tests/toy-app/src/alerts.ts`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -55,17 +55,17 @@
 
 ### Tests for User Story 1
 
-- [ ] T017 [P] [US1] Add unit tests for mode transition rules in `tests/unit/pomodoro-cycle.spec.ts`
-- [ ] T018 [P] [US1] Add unit tests for timestamp-based countdown completion in `tests/unit/ticker-countdown.spec.ts`
-- [ ] T019 [P] [US1] Add contract test for mode/time UI state transitions in `tests/contract/timer-ui-cycle.contract.spec.ts`
-- [ ] T020 [P] [US1] Add Playwright integration flow for full cycle progression in `tests/integration/pomodoro-cycle.e2e.spec.ts`
+- [X] T017 [P] [US1] Add unit tests for mode transition rules in `tests/unit/pomodoro-cycle.spec.ts`
+- [X] T018 [P] [US1] Add unit tests for timestamp-based countdown completion in `tests/unit/ticker-countdown.spec.ts`
+- [X] T019 [P] [US1] Add contract test for mode/time UI state transitions in `tests/contract/timer-ui-cycle.contract.spec.ts`
+- [X] T020 [P] [US1] Add Playwright integration flow for full cycle progression in `tests/integration/pomodoro-cycle.e2e.spec.ts`
 
 ### Implementation for User Story 1
 
-- [ ] T021 [US1] Implement cycle transition coordinator using timer + cycle models in `tests/toy-app/src/services/cycle-service.ts`
-- [ ] T022 [US1] Implement timer tick orchestration and completion dispatch in `tests/toy-app/src/services/timer-service.ts`
-- [ ] T023 [US1] Render active mode label and countdown display bindings in `tests/toy-app/src/ui/timer-view.ts`
-- [ ] T024 [US1] Wire app bootstrap to initialize Focus `25:00` and expose transition state in `tests/toy-app/src/app.ts`
+- [X] T021 [US1] Implement cycle transition coordinator using timer + cycle models in `tests/toy-app/src/services/cycle-service.ts`
+- [X] T022 [US1] Implement timer tick orchestration and completion dispatch in `tests/toy-app/src/services/timer-service.ts`
+- [X] T023 [US1] Render active mode label and countdown display bindings in `tests/toy-app/src/ui/timer-view.ts`
+- [X] T024 [US1] Wire app bootstrap to initialize Focus `25:00` and expose transition state in `tests/toy-app/src/app.ts`
 
 **Checkpoint**: User Story 1 is independently functional and testable
 
@@ -79,15 +79,15 @@
 
 ### Tests for User Story 2
 
-- [ ] T025 [P] [US2] Add unit tests for start/pause/reset command semantics in `tests/unit/timer-controls.spec.ts`
-- [ ] T026 [P] [US2] Add contract test for Start/Pause/Reset UI command effects in `tests/contract/timer-ui-controls.contract.spec.ts`
-- [ ] T027 [P] [US2] Add Playwright integration test for control interactions in `tests/integration/timer-controls.e2e.spec.ts`
+- [X] T025 [P] [US2] Add unit tests for start/pause/reset command semantics in `tests/unit/timer-controls.spec.ts`
+- [X] T026 [P] [US2] Add contract test for Start/Pause/Reset UI command effects in `tests/contract/timer-ui-controls.contract.spec.ts`
+- [X] T027 [P] [US2] Add Playwright integration test for control interactions in `tests/integration/timer-controls.e2e.spec.ts`
 
 ### Implementation for User Story 2
 
-- [ ] T028 [US2] Implement control command handlers with duplicate-start guard in `tests/toy-app/src/services/control-service.ts`
-- [ ] T029 [US2] Implement control button component and event bindings in `tests/toy-app/src/ui/controls-view.ts`
-- [ ] T030 [US2] Integrate control service with timer service and UI state updates in `tests/toy-app/src/app.ts`
+- [X] T028 [US2] Implement control command handlers with duplicate-start guard in `tests/toy-app/src/services/control-service.ts`
+- [X] T029 [US2] Implement control button component and event bindings in `tests/toy-app/src/ui/controls-view.ts`
+- [X] T030 [US2] Integrate control service with timer service and UI state updates in `tests/toy-app/src/app.ts`
 
 **Checkpoint**: User Stories 1 and 2 both work independently
 
@@ -101,17 +101,17 @@
 
 ### Tests for User Story 3
 
-- [ ] T031 [P] [US3] Add unit tests for daily counter increment and date reset logic in `tests/unit/daily-focus-summary.spec.ts`
-- [ ] T032 [P] [US3] Add contract test for completion alert and daily counter UI contract in `tests/contract/timer-ui-alerts-counter.contract.spec.ts`
-- [ ] T033 [P] [US3] Add Playwright integration test for alerts fallback and daily counter updates in `tests/integration/alerts-counter.e2e.spec.ts`
+- [X] T031 [P] [US3] Add unit tests for daily counter increment and date reset logic in `tests/unit/daily-focus-summary.spec.ts`
+- [X] T032 [P] [US3] Add contract test for completion alert and daily counter UI contract in `tests/contract/timer-ui-alerts-counter.contract.spec.ts`
+- [X] T033 [P] [US3] Add Playwright integration test for alerts fallback and daily counter updates in `tests/integration/alerts-counter.e2e.spec.ts`
 
 ### Implementation for User Story 3
 
-- [ ] T034 [US3] Implement completion alert coordinator to invoke audio and notifications best-effort in `tests/toy-app/src/services/alert-service.ts`
-- [ ] T035 [US3] Implement daily counter service backed by `localStorage` date-keyed record in `tests/toy-app/src/services/daily-counter-service.ts`
-- [ ] T036 [US3] Render daily counter UI and update bindings in `tests/toy-app/src/ui/daily-counter-view.ts`
-- [ ] T037 [US3] Integrate completion pipeline to increment counters and dispatch alerts on focus completion in `tests/toy-app/src/services/completion-service.ts`
-- [ ] T038 [US3] Wire alert/counter services into app lifecycle and midnight rollover checks in `tests/toy-app/src/app.ts`
+- [X] T034 [US3] Implement completion alert coordinator to invoke audio and notifications best-effort in `tests/toy-app/src/services/alert-service.ts`
+- [X] T035 [US3] Implement daily counter service backed by `localStorage` date-keyed record in `tests/toy-app/src/services/daily-counter-service.ts`
+- [X] T036 [US3] Render daily counter UI and update bindings in `tests/toy-app/src/ui/daily-counter-view.ts`
+- [X] T037 [US3] Integrate completion pipeline to increment counters and dispatch alerts on focus completion in `tests/toy-app/src/services/completion-service.ts`
+- [X] T038 [US3] Wire alert/counter services into app lifecycle and midnight rollover checks in `tests/toy-app/src/app.ts`
 
 **Checkpoint**: All user stories are independently functional
 
@@ -121,11 +121,11 @@
 
 **Purpose**: Repository-wide quality, docs, and final validation
 
-- [ ] T039 [P] Add unit test coverage for edge cases (notification denied, audio failure, reset at `0:00`) in `tests/unit/edge-cases.spec.ts`
-- [ ] T040 [P] Add integration regression for focus-cycle + controls + counter continuity in `tests/integration/full-flow-regression.e2e.spec.ts`
-- [ ] T041 Update quickstart execution notes and verification checklist in `specs/001-pomodoro-wrapper-test/quickstart.md`
-- [ ] T042 Add implementation notes and architecture decisions to feature docs in `specs/001-pomodoro-wrapper-test/research.md`
-- [ ] T043 Run full validation scripts and capture outcomes in `specs/001-pomodoro-wrapper-test/checklists/requirements.md`
+- [X] T039 [P] Add unit test coverage for edge cases (notification denied, audio failure, reset at `0:00`) in `tests/unit/edge-cases.spec.ts`
+- [X] T040 [P] Add integration regression for focus-cycle + controls + counter continuity in `tests/integration/full-flow-regression.e2e.spec.ts`
+- [X] T041 Update quickstart execution notes and verification checklist in `specs/001-pomodoro-wrapper-test/quickstart.md`
+- [X] T042 Add implementation notes and architecture decisions to feature docs in `specs/001-pomodoro-wrapper-test/research.md`
+- [X] T043 Run full validation scripts and capture outcomes in `specs/001-pomodoro-wrapper-test/checklists/requirements.md`
 
 ---
 

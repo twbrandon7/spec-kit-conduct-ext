@@ -1,0 +1,3 @@
+# Test cross-directory module resolution symlink
+tests/node_modules
+tests/toy-app/node_modules

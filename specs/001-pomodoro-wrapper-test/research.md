@@ -85,3 +85,53 @@ Alternatives considered:
 - `Testing`: Resolved to Vitest (unit/fake timers) + Playwright (integration/browser behavior).
 
 All `NEEDS CLARIFICATION` items from Technical Context are resolved in this document.
+
+---
+
+## Implementation Notes (Post-Build)
+
+### Architecture Decisions Made During Implementation
+
+#### 1. Module Resolution for Cross-Directory Tests
+**Problem**: Vitest runs from `tests/toy-app/` but test files live in `tests/unit/` and
+`tests/contract/`. Vite's module resolver starts from the importing file's directory when
+resolving bare imports (e.g., `vitest`), so it can't find packages in `tests/toy-app/node_modules`.
+
+**Solution**: Create a symlink `tests/node_modules → tests/toy-app/node_modules`. Node.js
+module resolution traverses parent directories, finding the symlink at the `tests/` level.
+This is a standard monorepo pattern and requires no changes to import paths in test files.
+
+**Vitest config**: `root` is set to `../` (tests/) so test discovery works with relative
+`include` patterns, while `server.fs.allow` is set to the repo root to allow Vite to serve
+any file in the project.
+
+#### 2. Best-Effort Alert Isolation
+**Problem**: `void this.alertService.fireCompletionAlert(...)` discards async rejection
+but does NOT catch synchronous throws (which occur before the Promise is created).
+
+**Solution**: `CompletionService` wraps the alert call in a try-catch block AND discards
+rejected promises via `.catch(() => {})`. This handles both sync throws and async rejections.
+
+#### 3. Timestamp-Based Ticker
+The `Ticker` class computes `remaining = Math.ceil((targetEndMs - Date.now()) / 1000)` on
+every interval. Using `Math.ceil` (not `Math.round` or `Math.floor`) ensures the display
+shows the correct "time left" rather than prematurely hitting 0.
+
+#### 4. Fake Timers in Ticker Tests
+Vitest's `vi.useFakeTimers()` fakes both `setInterval`/`clearInterval` AND `Date.now()`.
+This means `vi.advanceTimersByTime(1000)` advances both the interval callbacks AND the
+system clock, making timestamp-based tick math testable without real waits.
+
+#### 5. CompletionService Pipeline Ordering
+Focus completion pipeline order:
+1. Alert fire (best-effort, void — async)
+2. Daily counter increment (synchronous, before returning)
+3. Cycle transition to next session
+This ordering ensures the counter is updated and returned synchronously in the result,
+while alerts run in the background without blocking transitions.
+
+### Test Coverage Summary
+- **Unit tests (5 files, 54 tests)**: Pure model logic, ticker, controls, daily summary, edge cases
+- **Contract tests (3 files, 53 tests)**: UI behavior contracts, state invariants, command effects
+- **Integration tests (4 files)**: Playwright e2e tests for full browser behavior
+- **Total unit+contract**: 107 tests, all passing
