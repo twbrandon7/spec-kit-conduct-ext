@@ -32,3 +32,8 @@
 ## Notes
 
 - Validation pass 1: all checklist items passed.
+- Validation pass 2 (2026-03-06): implementation verification complete.
+- Commands executed from `tests/toy-app/`:
+- `npm run test` -> pass
+- `npm run build` -> pass
+- `npm run test:e2e` -> pass

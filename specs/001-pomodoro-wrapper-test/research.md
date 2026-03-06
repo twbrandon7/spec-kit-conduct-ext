@@ -85,3 +85,20 @@ Alternatives considered:
 - `Testing`: Resolved to Vitest (unit/fake timers) + Playwright (integration/browser behavior).
 
 All `NEEDS CLARIFICATION` items from Technical Context are resolved in this document.
+
+## Implementation Notes (Post-Build)
+
+- App composition is centralized in `tests/toy-app/src/app.ts`, which wires model/services/views and exposes lightweight controls used by contract tests.
+- Timer correctness is enforced by timestamp math (`targetEndMs`) and completion callbacks in `tests/toy-app/src/services/timer-service.ts`, avoiding setInterval drift.
+- Mode progression remains stateful but isolated in `tests/toy-app/src/services/cycle-service.ts` and `tests/toy-app/src/cycle-model.ts`.
+- Alert dispatch is best-effort via `Promise.allSettled` in `tests/toy-app/src/services/alert-service.ts`, so UI transition flow never blocks on audio/notification failures.
+- Daily counter persistence is date-scoped through `DailySummaryAdapter` + `DailyCounterService`, with rollover checks invoked during app lifecycle events.
+
+## Architecture Decisions (Final)
+
+- Use a service-oriented vanilla TypeScript design instead of framework components to keep orchestration behavior explicit and test-friendly.
+- Split test layers by risk:
+- Unit tests for deterministic state transitions and storage rollover.
+- Contract tests for rendered UI semantics and command effects.
+- Playwright integration for browser-timed flows and regression continuity.
+- Keep Playwright durations injectable via `window.__POMODORO_TEST_DURATIONS__` to make end-to-end scenarios fast and deterministic.

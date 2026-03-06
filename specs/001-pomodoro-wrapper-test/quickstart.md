@@ -32,6 +32,7 @@ mkdir -p tests/toy-app/src tests/unit tests/integration
 cd tests/toy-app
 npm init -y
 npm i -D typescript vite vitest @playwright/test
+npm i -D @types/node
 npx tsc --init
 ```
 
@@ -42,6 +43,7 @@ In `tests/toy-app/package.json`, configure scripts:
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "test": "vitest run",
     "test:unit": "vitest run",
     "test:e2e": "playwright test"
   }
@@ -76,9 +78,19 @@ npm run dev
 4. Verify at least one alert path (audio or notification) is visible when timer completes.
 5. Change local date context or simulate date rollover and verify daily counter resets.
 
+Automated checks mapped to this list:
+1. `tests/integration/pomodoro-cycle.e2e.spec.ts`
+2. `tests/unit/pomodoro-cycle.spec.ts`
+3. `tests/integration/timer-controls.e2e.spec.ts`
+4. `tests/contract/timer-ui-alerts-counter.contract.spec.ts`
+5. `tests/unit/daily-focus-summary.spec.ts`
+6. Cross-cutting regression: `tests/integration/full-flow-regression.e2e.spec.ts`
+
 ## 6. Execute tests
 ```bash
 cd /workspaces/spec-kit-orchestration-ext/tests/toy-app
+npm run test
+npm run build
 npm run test:unit
 npm run test:e2e
 ```
