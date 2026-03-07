@@ -1,13 +1,12 @@
 # spec-kit-orchestration-ext
 
-Orchestration wrapper for [Spec Kit](https://github.com/github/spec-kit) that runs the full spec-driven development workflow end-to-end.
+Orchestration wrapper for [Spec Kit](https://github.com/github/spec-kit) that executes each spec-kit phase with sub-agents to stabilize behavior and reduce context pollution in the main agent.
 
 ## Commands
 
 | Command | What it does |
 |---------|-------------|
-| `speckit.orchestration.run` | Run the full workflow: specify → plan → tasks → implement |
-| `speckit.orchestration.plan` | Orchestrate the planning phase: specify → plan → tasks |
+| `speckit.orchestration.run` | Run one phase (`specify`, `plan`, `tasks`, or `implement`) through step-by-step sub-agent orchestration |
 
 ## Installation
 
@@ -25,38 +24,34 @@ specify extension add --dev /path/to/spec-kit-orchestration-ext
 
 ## Usage
 
-### Full Workflow
+### Phase-by-Phase Execution
 
-Run the entire spec-driven development workflow end-to-end:
-
-```
-/speckit.orchestration.run <feature name or requirements>
-```
-
-This runs all four phases in sequence, pausing for human review between each phase:
+Run one phase at a time. Each invocation delegates that phase's steps to sub-agents and keeps the main agent context clean.
 
 ```
-Phase 1: /speckit.specify  → Generate spec.md from requirements
-Phase 2: /speckit.plan     → Generate plan.md from spec.md
-Phase 3: /speckit.tasks    → Generate tasks.md from plan.md
-Phase 4: /speckit.implement → Implement tasks from tasks.md
+/speckit.orchestration.run <phase> <feature name or requirements>
 ```
 
-### Planning Phase Only
-
-Orchestrate just the planning phase, stopping before implementation:
+Supported phase values:
 
 ```
-/speckit.orchestration.plan <feature name or requirements>
+constitution
+specify
+plan
+tasks
+implement
 ```
 
-This runs the first three phases and produces a ready-to-implement task list:
+Run each phase separately:
 
 ```
-Phase 1: /speckit.specify  → Generate spec.md from requirements
-Phase 2: /speckit.plan     → Generate plan.md from spec.md
-Phase 3: /speckit.tasks    → Generate tasks.md from plan.md
+/speckit.orchestration.run specify Build a pomodoro app
+/speckit.orchestration.run plan
+/speckit.orchestration.run tasks
+/speckit.orchestration.run implement
 ```
+
+The command does not run all phases in one invocation. You should review outputs between phases and then trigger the next phase explicitly.
 
 ## Requirements
 

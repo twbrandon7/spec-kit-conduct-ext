@@ -20,10 +20,11 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **Toy app (default)**: `tests/toy-app/` for all implementation code
+- **Test suites**: `tests/contract/`, `tests/integration/`, `tests/unit/`
+- **Web toy app**: `tests/toy-app/backend/`, `tests/toy-app/frontend/`
+- **Mobile toy app**: `tests/toy-app/api/`, `tests/toy-app/ios/` or `tests/toy-app/android/`
+- Paths shown below assume toy app implementation inside `tests/` - adjust per plan.md
 
 <!-- 
   ============================================================================
@@ -88,10 +89,10 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T012 [P] [US1] Create [Entity1] model in tests/toy-app/models/[entity1].py
+- [ ] T013 [P] [US1] Create [Entity2] model in tests/toy-app/models/[entity2].py
+- [ ] T014 [US1] Implement [Service] in tests/toy-app/services/[service].py (depends on T012, T013)
+- [ ] T015 [US1] Implement [endpoint/feature] in tests/toy-app/[location]/[file].py
 - [ ] T016 [US1] Add validation and error handling
 - [ ] T017 [US1] Add logging for user story 1 operations
 
@@ -112,9 +113,9 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T021 [US2] Implement [Service] in src/services/[service].py
-- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T020 [P] [US2] Create [Entity] model in tests/toy-app/models/[entity].py
+- [ ] T021 [US2] Implement [Service] in tests/toy-app/services/[service].py
+- [ ] T022 [US2] Implement [endpoint/feature] in tests/toy-app/[location]/[file].py
 - [ ] T023 [US2] Integrate with User Story 1 components (if needed)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
@@ -134,9 +135,9 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T027 [US3] Implement [Service] in src/services/[service].py
-- [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T026 [P] [US3] Create [Entity] model in tests/toy-app/models/[entity].py
+- [ ] T027 [US3] Implement [Service] in tests/toy-app/services/[service].py
+- [ ] T028 [US3] Implement [endpoint/feature] in tests/toy-app/[location]/[file].py
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -203,8 +204,8 @@ Task: "Contract test for [endpoint] in tests/contract/test_[name].py"
 Task: "Integration test for [user journey] in tests/integration/test_[name].py"
 
 # Launch all models for User Story 1 together:
-Task: "Create [Entity1] model in src/models/[entity1].py"
-Task: "Create [Entity2] model in src/models/[entity2].py"
+Task: "Create [Entity1] model in tests/toy-app/models/[entity1].py"
+Task: "Create [Entity2] model in tests/toy-app/models/[entity2].py"
 ```
 
 ---
