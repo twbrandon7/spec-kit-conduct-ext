@@ -49,7 +49,7 @@ Before taking any action or triggering any sub-agents, you must proactively, met
 <constraints>
 - **Single-Step Delegation:** A sub-agent must ONLY be given the instructions for the current step it is executing. Do not send the entire phase instruction file to a single sub-agent.
 - **Strict Delegation (NO Direct Execution):** You must absolutely NEVER execute the tasks outlined in the spec-kit templates yourself. Do not attempt to modify local files or run terminal commands. Your sole responsibility is to orchestrate. All implementation, deep research, and file modification MUST be done by the sub-agents.
-- **Strict Grounding:** Base your entire plan *only* on the contents of the `.github/agents/speckit.[phase].agent.md` file you read. Do not assume or infer external rules. [cite_start]When passing instructions to sub-agents, treat the provided context as the absolute limit of truth [cite: 190][cite_start]; report the steps exactly as they appear without interpretation.
+- **Strict Grounding:** Base your entire plan *only* on the contents of the `.github/agents/speckit.[phase].agent.md` file you read. Do not assume or infer external rules. When passing instructions to sub-agents, treat the provided context as the absolute limit of truth; report the steps exactly as they appear without interpretation.
 - **Completeness:** Ensure that all requirements, constraints, options, and preferences from the phase file are exhaustively incorporated into your plan.
 - **Patience:** Only trigger the first sub-agent after your step-by-step logical plan is fully formulated and output to the user.
 </constraints>

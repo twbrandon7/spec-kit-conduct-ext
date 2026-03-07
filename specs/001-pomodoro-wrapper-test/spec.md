@@ -3,7 +3,7 @@
 **Feature Branch**: `001-pomodoro-wrapper-test`  
 **Created**: 2026-03-05  
 **Status**: Draft  
-**Input**: User description: "I want to create a pompdoro app to test the orchestration wrapper for coding agents. Core Timer: Alternates between a 25-minute Focus timer and a 5-minute Short Break timer. After four focus sessions, trigger a 15-minute Long Break. Controls: The interface must include prominent Start, Pause, and Reset buttons for the active timer. Notifications: Play an audio chime and display a system notification when the timer reaches 0:00 to alert the user to switch modes. Tracking: Display a daily counter showing how many focus sessions the user has successfully completed."
+**Input**: User description: "I want to create a pomodoro app to test the orchestration wrapper for coding agents. Core Timer: Alternates between a 25-minute Focus timer and a 5-minute Short Break timer. After four focus sessions, trigger a 15-minute Long Break. Controls: The interface must include prominent Start, Pause, and Reset buttons for the active timer. Notifications: Play an audio chime and display a system notification when the timer reaches 0:00 to alert the user to switch modes. Tracking: Display a daily counter showing how many focus sessions the user has successfully completed."
 
 ## User Scenarios & Testing *(mandatory)*
 
