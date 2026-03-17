@@ -10,10 +10,10 @@ Conduct wrapper for [Spec Kit](https://github.com/github/spec-kit) that executes
 
 ## Installation
 
-Install from the latest release (requires a [tagged release](https://github.com/twbrandon7/spec-kit-orchestration-ext/releases) to exist):
+Install from the latest release (requires a [tagged release](https://github.com/twbrandon7/spec-kit-conduct-ext/releases) to exist):
 
 ```sh
-specify extension add --from https://github.com/twbrandon7/spec-kit-orchestration-ext/archive/refs/tags/v1.0.0.zip
+specify extension add --from https://github.com/twbrandon7/spec-kit-conduct-ext/archive/refs/tags/v1.0.0.zip
 ```
 
 Or for local development:

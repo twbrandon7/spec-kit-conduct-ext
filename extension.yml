@@ -4,11 +4,11 @@ extension:
   id: "conduct"
   name: "Conduct Extension"
   version: "1.0.0"
-  description: "Conduct wrapper that orchestrates each spec-kit phase through step-by-step sub-agent delegation to stabilize behavior and reduce context pollution."
+  description: "Orchestrates spec-kit phases via sub-agent delegation to reduce context pollution."
   author: "twbrandon7"
-  repository: "https://github.com/twbrandon7/spec-kit-orchestration-ext"
+  repository: "https://github.com/twbrandon7/spec-kit-conduct-ext"
   license: "MIT"
-  homepage: "https://github.com/twbrandon7/spec-kit-orchestration-ext"
+  homepage: "https://github.com/twbrandon7/spec-kit-conduct-ext"
 
 requires:
   speckit_version: ">=0.1.0"
