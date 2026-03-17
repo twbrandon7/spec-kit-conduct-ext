@@ -53,6 +53,21 @@ Run each phase separately:
 
 The command does not run all phases in one invocation. You should review outputs between phases and then trigger the next phase explicitly.
 
+## Framework Configuration
+
+If you want to explicitly specify the AI coding tool for orchestration, set `framework` in `.specify/extensions.yml`:
+
+```yaml
+installed:
+	- orchestration
+
+settings:
+	orchestration:
+		framework: "copilot"
+```
+
+`load.sh` returns that value in its JSON output as `framework`. Supported values match the agent identifiers used by the loader: `copilot`, `claude`, `gemini`, `cursor-agent`, `qwen`, `opencode`, `codex`, `windsurf`, `kilocode`, `auggie`, `roo`, `codebuddy`, `amp`, `shai`, `kiro-cli`, `bob`, `qodercli`, `tabnine`, `kimi`, `generic`.
+
 ## Requirements
 
 - Spec Kit `>=0.1.0`
