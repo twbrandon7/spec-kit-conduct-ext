@@ -2,7 +2,7 @@
 Sync Impact Report
 - Version change: template-unversioned -> 1.0.0
 - Modified principles:
-	- Template Principle 1 -> I. Orchestration-First Scope
+	- Template Principle 1 -> I. Conduct-First Scope
 	- Template Principle 2 -> II. Tests-Sandbox Source Placement (NON-NEGOTIABLE)
 	- Template Principle 3 -> III. Spec-Driven Workflow Fidelity
 	- Template Principle 4 -> IV. Traceable Quality Gates
@@ -22,13 +22,13 @@ Sync Impact Report
 	- None
 -->
 
-# spec-kit-orchestration-ext Constitution
+# spec-kit-conduct-ext Constitution
 
 ## Core Principles
 
-### I. Orchestration-First Scope
-This repository MUST prioritize orchestration extension behavior for Spec Kit workflows.
-Production extension logic, command metadata, and orchestration instructions MUST remain
+### I. Conduct-First Scope
+This repository MUST prioritize conduct extension behavior for Spec Kit workflows.
+Production extension logic, command metadata, and conduct instructions MUST remain
 separate from demo application code used for flow validation. Rationale: this keeps
 extension reliability independent from sample feature code.
 
@@ -42,13 +42,13 @@ product delivered by this repository.
 ### III. Spec-Driven Workflow Fidelity
 Changes MUST preserve the end-to-end sequence `specify -> plan -> tasks -> implement`
 and MUST keep artifacts internally consistent (`spec.md`, `plan.md`, `tasks.md`, and
-implementation outputs). Rationale: orchestration value depends on deterministic,
+implementation outputs). Rationale: conduct value depends on deterministic,
 repeatable phase handoffs.
 
 ### IV. Traceable Quality Gates
 Every planning and implementation change MUST include explicit Constitution Check
 coverage, file-path traceability in tasks, and verifiable validation steps for both
-orchestration behavior and toy app behavior. Rationale: quality controls are enforceable
+conduct behavior and toy app behavior. Rationale: quality controls are enforceable
 only when checks are concrete and auditable.
 
 ### V. Template and Guidance Synchronization
@@ -59,7 +59,7 @@ systematic drift and non-compliant outputs.
 
 ## Repository Boundaries
 
-- Extension and orchestration assets live in repository-level config and command paths
+- Extension and conduct assets live in repository-level config and command paths
 	such as `commands/`, `extension.yml`, and `.specify/`.
 - Toy app and flow-validation source code lives under `tests/`.
 - Feature specs and planning artifacts live under `specs/`.
@@ -72,7 +72,7 @@ systematic drift and non-compliant outputs.
 	under `tests/`.
 - All generated tasks MUST include concrete file paths and keep toy app implementation
 	paths under `tests/`.
-- Pull requests that change templates or orchestration guidance MUST include a brief sync
+- Pull requests that change templates or conduct guidance MUST include a brief sync
 	note describing which files were checked or updated.
 
 ## Governance

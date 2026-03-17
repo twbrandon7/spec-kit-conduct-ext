@@ -1,10 +1,10 @@
 schema_version: "1.0"
 
 extension:
-  id: "orchestration"
-  name: "Orchestration Extension"
+  id: "conduct"
+  name: "Conduct Extension"
   version: "1.0.0"
-  description: "Orchestration wrapper for Spec Kit that runs the full spec-driven development workflow end-to-end."
+  description: "Conduct wrapper that orchestrates each spec-kit phase through step-by-step sub-agent delegation to stabilize behavior and reduce context pollution."
   author: "twbrandon7"
   repository: "https://github.com/twbrandon7/spec-kit-orchestration-ext"
   license: "MIT"
@@ -20,11 +20,11 @@ requires:
 
 provides:
   commands:
-    - name: "speckit.orchestration.run"
-      file: "commands/orchestration.md"
+    - name: "speckit.conduct.run"
+      file: "commands/conduct.md"
       description: "Orchestrates complex spec-kit phases by planning and delegating to specialized sub-agents."
 
 tags:
-  - "orchestration"
+  - "conduct"
   - "workflow"
   - "automation"

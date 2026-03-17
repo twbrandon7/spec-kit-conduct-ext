@@ -1,12 +1,12 @@
-# spec-kit-orchestration-ext
+# spec-kit-conduct-ext
 
-Orchestration wrapper for [Spec Kit](https://github.com/github/spec-kit) that executes each spec-kit phase with sub-agents to stabilize behavior and reduce context pollution in the main agent.
+Conduct wrapper for [Spec Kit](https://github.com/github/spec-kit) that executes each spec-kit phase with sub-agents to stabilize behavior and reduce context pollution in the main agent.
 
 ## Commands
 
 | Command | What it does |
 |---------|-------------|
-| `speckit.orchestration.run` | Run one phase (`specify`, `plan`, `tasks`, or `implement`) through step-by-step sub-agent orchestration |
+| `speckit.conduct.run` | Run one phase (`specify`, `plan`, `tasks`, or `implement`) through step-by-step sub-agent orchestration |
 
 ## Installation
 
@@ -19,7 +19,7 @@ specify extension add --from https://github.com/twbrandon7/spec-kit-orchestratio
 Or for local development:
 
 ```sh
-specify extension add --dev /path/to/spec-kit-orchestration-ext
+specify extension add --dev /path/to/spec-kit-conduct-ext
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ specify extension add --dev /path/to/spec-kit-orchestration-ext
 Run one phase at a time. Each invocation delegates that phase's steps to sub-agents and keeps the main agent context clean.
 
 ```
-/speckit.orchestration.run <phase> <feature name or requirements>
+/speckit.conduct.run <phase> <feature name or requirements>
 ```
 
 Supported phase values:
@@ -45,10 +45,10 @@ implement
 Run each phase separately:
 
 ```
-/speckit.orchestration.run specify Build a pomodoro app
-/speckit.orchestration.run plan
-/speckit.orchestration.run tasks
-/speckit.orchestration.run implement
+/speckit.conduct.run specify Build a pomodoro app
+/speckit.conduct.run plan
+/speckit.conduct.run tasks
+/speckit.conduct.run implement
 ```
 
 The command does not run all phases in one invocation. You should review outputs between phases and then trigger the next phase explicitly.
@@ -59,10 +59,10 @@ If you want to explicitly specify the AI coding tool for orchestration, set `fra
 
 ```yaml
 installed:
-	- orchestration
+	- conduct
 
 settings:
-	orchestration:
+	conduct:
 		framework: "copilot"
 ```
 
