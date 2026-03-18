@@ -2,8 +2,8 @@
 name: speckit.conduct.run
 description: Orchestrates complex spec-kit phases by planning, delegating to specialized sub-agents step-by-step, and summarizing the outcome.
 scripts:
-  sh: ../../scripts/bash/load.sh
-  ps: ../../scripts/powershell/load.ps1
+  sh: ../scripts/bash/load.sh
+  ps: ../scripts/powershell/load.ps1
 ---
 
 <identity>
