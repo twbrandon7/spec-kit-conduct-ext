@@ -17,6 +17,9 @@ requires:
     - "speckit.plan"
     - "speckit.tasks"
     - "speckit.implement"
+  scripts:
+    - "scripts/bash/common.sh"
+    - "scripts/powershell/common.ps1"
 
 provides:
   commands:
