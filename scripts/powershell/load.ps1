@@ -22,15 +22,8 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-function JsonEscape {
-    param([string]$Value)
-    $Value = $Value -replace '\\', '\\'
-    $Value = $Value -replace '"', '\"'
-    $Value = $Value -replace "`n", '\n'
-    $Value = $Value -replace "`r", '\r'
-    $Value = $Value -replace "`t", '\t'
-    return $Value
-}
+# Import common functions
+. (Join-Path $PSScriptRoot 'common.ps1')
 
 function NormalizeAgent {
     param([string]$Agent)
@@ -125,30 +118,19 @@ function ExtractFramework {
         # Extract framework from orchestration section
         if ($inOrchestration -and $line -match '^\s*framework:\s*') {
             $framework = $line -replace '^\s*framework:\s*', ''
-            $framework = $framework -replace '^["\']|["\']$', ''
+            $framework = $framework -replace "^[`"`"']|[`"`"']$", ''
             return $framework.Trim()
         }
         
         # Extract framework from top-level settings section
         if ($inSettings -and -not $inOrchestration -and $line -match '^\s*framework:\s*') {
             $framework = $line -replace '^\s*framework:\s*', ''
-            $framework = $framework -replace '^["\']|["\']$', ''
+            $framework = $framework -replace "^[`"`"']|[`"`"']$", ''
             return $framework.Trim()
         }
     }
     
     return ''
-}
-
-function GetRepoRoot {
-    $current = Get-Location
-    while ($current.Path -ne $current.Parent.Path) {
-        if (Test-Path (Join-Path $current.Path '.git')) {
-            return $current.Path
-        }
-        $current = $current.Parent
-    }
-    throw "Not in a git repository"
 }
 
 try {
@@ -158,7 +140,7 @@ try {
         exit 1
     }
     
-    $repoRoot = GetRepoRoot
+    $repoRoot = Get-RepoRoot
     $configFile = Join-Path $repoRoot '.specify/extensions.yml'
     $framework = ExtractFramework -ConfigFile $configFile
     
