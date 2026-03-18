@@ -120,54 +120,14 @@ extract_framework() {
     [[ -f "$config_file" ]] || return 0
 
     awk '
-        function indent_of(line, idx) {
-            idx = match(line, /[^ ]/)
-            return idx ? idx - 1 : 0
-        }
-
         /^[[:space:]]*#/ { next }
         /^[[:space:]]*$/ { next }
-
-        {
-            line = $0
-            indent = indent_of(line)
-
-            if (in_orchestration && indent <= orchestration_indent) {
-                in_orchestration = 0
-            }
-
-            if (in_settings && indent <= settings_indent && line !~ /^[[:space:]]*settings:[[:space:]]*$/) {
-                in_settings = 0
-                in_orchestration = 0
-            }
-
-            if (line ~ /^[[:space:]]*settings:[[:space:]]*$/) {
-                in_settings = 1
-                settings_indent = indent
-                next
-            }
-
-            if (in_settings && line ~ /^[[:space:]]*orchestration:[[:space:]]*$/) {
-                in_orchestration = 1
-                orchestration_indent = indent
-                next
-            }
-
-            if (in_orchestration && line ~ /^[[:space:]]*framework:[[:space:]]*/) {
-                sub(/^[[:space:]]*framework:[[:space:]]*/, "", line)
-                gsub(/^\"|\"$/, "", line)
-                gsub(/^'\''|'\''$/, "", line)
-                print line
-                exit
-            }
-
-            if (in_settings && !in_orchestration && line ~ /^[[:space:]]*framework:[[:space:]]*/) {
-                sub(/^[[:space:]]*framework:[[:space:]]*/, "", line)
-                gsub(/^\"|\"$/, "", line)
-                gsub(/^'\''|'\''$/, "", line)
-                print line
-                exit
-            }
+        /^[[:space:]]*framework:[[:space:]]*/ {
+            sub(/^[[:space:]]*framework:[[:space:]]*/, "")
+            gsub(/^\"|\"$/, "")
+            gsub(/^'\''|'\''$/, "")
+            print
+            exit
         }
     ' "$config_file"
 }
@@ -186,7 +146,7 @@ main() {
 
     local repo_root
     repo_root="$(get_repo_root)"
-    local config_file="$repo_root/.specify/extensions.yml"
+    local config_file="$repo_root/.specify/extensions/conduct/conduct-config.yml"
     local framework=""
     framework="$(extract_framework "$config_file")"
 

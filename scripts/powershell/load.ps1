@@ -82,48 +82,14 @@ function ExtractFramework {
     $content = Get-Content -Path $ConfigFile -Raw
     $lines = $content -split "`n"
     
-    $inSettings = $false
-    $inOrchestration = $false
-    $settingsIndent = -1
-    $orchestrationIndent = -1
-    
     foreach ($line in $lines) {
         # Skip comments and empty lines
         if ($line -match '^\s*#' -or $line -match '^\s*$') {
             continue
         }
         
-        $indent = if ($line -match '^\s+') { ($line | Select-String '^\s+').Matches[0].Length } else { 0 }
-        
-        # Check if we're exiting settings block
-        if ($inSettings -and $indent -le $settingsIndent -and $line -notmatch '^\s*settings:\s*$') {
-            $inSettings = $false
-            $inOrchestration = $false
-        }
-        
-        # Check if we're entering settings block
-        if ($line -match '^\s*settings:\s*$') {
-            $inSettings = $true
-            $settingsIndent = $indent
-            continue
-        }
-        
-        # Check if we're entering orchestration block within settings
-        if ($inSettings -and $line -match '^\s*orchestration:\s*$') {
-            $inOrchestration = $true
-            $orchestrationIndent = $indent
-            continue
-        }
-        
-        # Extract framework from orchestration section
-        if ($inOrchestration -and $line -match '^\s*framework:\s*') {
-            $framework = $line -replace '^\s*framework:\s*', ''
-            $framework = $framework -replace "^[`"`"']|[`"`"']$", ''
-            return $framework.Trim()
-        }
-        
-        # Extract framework from top-level settings section
-        if ($inSettings -and -not $inOrchestration -and $line -match '^\s*framework:\s*') {
+        # Extract framework
+        if ($line -match '^\s*framework:\s*') {
             $framework = $line -replace '^\s*framework:\s*', ''
             $framework = $framework -replace "^[`"`"']|[`"`"']$", ''
             return $framework.Trim()
@@ -141,7 +107,7 @@ try {
     }
     
     $repoRoot = Get-RepoRoot
-    $configFile = Join-Path $repoRoot '.specify/extensions.yml'
+    $configFile = Join-Path $repoRoot '.specify/extensions/conduct/conduct-config.yml'
     $framework = ExtractFramework -ConfigFile $configFile
     
     # Determine ordered list of agents to check

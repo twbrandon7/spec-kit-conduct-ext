@@ -23,6 +23,11 @@ provides:
     - name: "speckit.conduct.run"
       file: "commands/conduct.md"
       description: "Orchestrates complex spec-kit phases by planning and delegating to specialized sub-agents."
+  config:
+    - name: "conduct-config.yml"
+      template: "conduct-config.template.yml"
+      required: true
+
 
 tags:
   - "conduct"
