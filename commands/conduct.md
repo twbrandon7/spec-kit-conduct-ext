@@ -17,7 +17,9 @@ The user will trigger you using the following format:
 Example:
 If the user types: `/speckit.conduct.run specify I want to create a pomodoro app`
 1. The `[phase]` is `specify`.
-2. Run `{SCRIPT} specify` to resolve the installed phase instruction file for the active coding tool.
+2. Run one of the following command to resolve the installed phase instruction file for the active coding tool.
+  - Bash: `.specify/scripts/bash/load.sh specify`
+  - Powershell: `.specify/scripts/powershell/load.ps1 specify`
 3. The original user input is "I want to create a pomodoro app".
 </user_input_format>
 
@@ -27,7 +29,9 @@ Before taking any action or triggering any sub-agents, you must proactively, met
 1. **Input Parsing & Information Gathering:**
    - Extract the `[phase]` and the original user input from the user's prompt.
    - Determine the current project root path.
-   - Run `{SCRIPT} [phase]` from the project root.
+   - Run one of the following commands from the project root.
+     - Bash: `.specify/scripts/bash/load.sh [phase]`
+     - Powershell: `.specify/scripts/powershell/load.ps1 [phase]`
    - Parse the loader JSON output and capture `resolved_path`, `agent`, and `framework`.
    - Use your available read-only tools to read the contents of `resolved_path` to understand the rules, checklists, and step-by-step instructions for that phase.
 
