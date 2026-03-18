@@ -226,15 +226,7 @@ main() {
         exit 1
     fi
 
-    local extension="${resolved_path##*.}"
-    printf '{\n'
-    printf '  "phase": "%s",\n' "$(json_escape "$phase")"
-    printf '  "agent": "%s",\n' "$(json_escape "$resolved_agent")"
-    printf '  "resolved_path": "%s",\n' "$(json_escape "$resolved_path")"
-    printf '  "format": "%s",\n' "$(json_escape "$extension")"
-    printf '  "config_path": "%s",\n' "$(json_escape "$config_file")"
-    printf '  "framework": "%s"\n' "$(json_escape "$framework")"
-    printf '}\n'
+    cat "$resolved_path"
 }
 
 main "$@"

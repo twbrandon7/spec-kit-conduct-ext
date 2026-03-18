@@ -185,20 +185,8 @@ try {
         exit 1
     }
     
-    # Extract file extension
-    $extension = [System.IO.Path]::GetExtension($resolvedPath).TrimStart('.')
-    
-    # Output JSON (formatted for consistency with Bash version)
-    $output = @{
-        phase = $Phase
-        agent = $resolvedAgent
-        resolved_path = $resolvedPath
-        format = $extension
-        config_path = $configFile
-        framework = $framework
-    } | ConvertTo-Json
-    
-    Write-Output $output
+    # Display the content of the resolved file
+    Get-Content -Path $resolvedPath -Raw
 }
 catch {
     Write-Error $_.Exception.Message
