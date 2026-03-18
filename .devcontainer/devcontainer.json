@@ -8,7 +8,8 @@
 		"ghcr.io/devcontainers/features/common-utils:2": {},
 		"ghcr.io/devcontainers/features/node:1": {},
 		"ghcr.io/devcontainers/features/python:1": {},
-		"ghcr.io/devcontainer-community/devcontainer-features/astral.sh-uv:1": {}
+		"ghcr.io/devcontainer-community/devcontainer-features/astral.sh-uv:1": {},
+		"ghcr.io/devcontainers/features/powershell:2": {}
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
