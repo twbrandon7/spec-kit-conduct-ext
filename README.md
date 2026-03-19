@@ -35,7 +35,6 @@ Run one phase at a time. Each invocation delegates that phase's steps to sub-age
 Supported phase values:
 
 ```
-constitution
 specify
 plan
 tasks
@@ -65,7 +64,7 @@ This file is created automatically when the extension is installed (using `condu
 
 ## Requirements
 
-- Spec Kit `>=0.1.0`
+- Spec Kit `>=0.3.1`
 
 ## License
 
