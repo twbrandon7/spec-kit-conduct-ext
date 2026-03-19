@@ -55,18 +55,13 @@ The command does not run all phases in one invocation. You should review outputs
 
 ## Framework Configuration
 
-If you want to explicitly specify the AI coding tool for orchestration, set `framework` in `.specify/extensions.yml`:
+If you want to explicitly specify the AI coding tool for orchestration, set `framework` in `.specify/extensions/conduct/conduct-config.yml`:
 
 ```yaml
-installed:
-	- conduct
-
-settings:
-	conduct:
-		framework: "copilot"
+framework: "copilot"
 ```
 
-`load.sh` returns that value in its JSON output as `framework`. Supported values match the agent identifiers used by the loader: `copilot`, `claude`, `gemini`, `cursor-agent`, `qwen`, `opencode`, `codex`, `windsurf`, `kilocode`, `auggie`, `roo`, `codebuddy`, `amp`, `shai`, `kiro-cli`, `bob`, `qodercli`, `tabnine`, `kimi`, `generic`.
+This file is created automatically when the extension is installed (using `conduct-config.template.yml` as the template). `load.sh` returns that value in its JSON output as `framework`. Supported values match the agent identifiers used by the loader: `copilot`, `claude`, `gemini`, `cursor-agent`, `qwen`, `opencode`, `codex`, `windsurf`, `kilocode`, `auggie`, `roo`, `codebuddy`, `amp`, `shai`, `kiro-cli`, `bob`, `qodercli`, `tabnine`, `kimi`, `generic`.
 
 ## Requirements
 

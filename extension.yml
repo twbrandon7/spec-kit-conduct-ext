@@ -4,7 +4,7 @@ extension:
   id: "conduct"
   name: "Conduct Extension"
   version: "1.0.0"
-  description: "Orchestrates spec-kit phases via sub-agent delegation to reduce context pollution."
+  description: "Executes a single spec-kit phase via sub-agent delegation to reduce context pollution."
   author: "twbrandon7"
   repository: "https://github.com/twbrandon7/spec-kit-conduct-ext"
   license: "MIT"
@@ -25,7 +25,7 @@ provides:
   commands:
     - name: "speckit.conduct.run"
       file: "commands/conduct.md"
-      description: "Orchestrates complex spec-kit phases by planning and delegating to specialized sub-agents."
+      description: "Executes a single spec-kit phase by delegating its steps to specialized sub-agents sequentially."
   config:
     - name: "conduct-config.yml"
       template: "conduct-config.template.yml"
