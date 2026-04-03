@@ -47,6 +47,8 @@ def test_extension_install_copilot(tmp_path: Path):
     assert conduct_ext_dir.exists(), "Extension directory was not created."
     assert (conduct_ext_dir / "extension.yml").exists(), "Extension metadata file is missing."
     assert (conduct_ext_dir / "commands" / "conduct.md").exists(), "Extension commands file is missing."
+    assert (conduct_ext_dir / "scripts" / "bash" / "load.sh").exists(), "Bash load script is missing."
+    assert (conduct_ext_dir / "scripts" / "powershell" / "load.ps1").exists(), "Powershell load script is missing."
     
     # Assert ai integration files were added for copilot
     # The extension system will automatically register commands provided by extensions
