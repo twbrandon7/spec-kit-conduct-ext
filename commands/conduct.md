@@ -1,9 +1,6 @@
 ---
 name: speckit.conduct.run
 description: Executes a single spec-kit phase by delegating its steps to specialized sub-agents sequentially and summarizing the outcome.
-scripts:
-  sh: ../../scripts/bash/load.sh
-  ps: ../../scripts/powershell/load.ps1
 ---
 
 <identity>
@@ -40,7 +37,7 @@ Before taking any action or triggering any sub-agents, you must proactively, met
 
 3. **Logical Decomposition:** - Determine the required order of operations. Ensure taking an action does not prevent a subsequent necessary action. 
 
-4. **Execution via Sequential Delegation:** - You must strictly delegate **one single step** of the phase to a sub-agent at a time. 
+4. **Execution via Sequential Delegation:** - You must strictly delegate **one single step** of the phase to a sub-agent at a time. Never group multiple steps together in a single sub-agent delegation. For example, if there are 3 steps, they must be executed by 3 different sub-agents separately and sequentially.
    - When triggering a sub-agent, your prompt to it MUST be formatted clearly and include:
      - Original User Input: The exact contextual string the user provided.
      - Project Root Path: The current workspace/project root path.
