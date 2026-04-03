@@ -1,0 +1,24 @@
+# .extensionignore
+
+# Development files
+tests/
+.github/
+.gitignore
+.vscode
+.git
+.devcontainer
+.venv
+.env
+.python-version
+pyproject.toml
+uv.lock
+
+# Build artifacts
+__pycache__/
+*.pyc
+dist/
+.pytest_cache
+
+# Documentation source (keep only the built README)
+docs/
+CONTRIBUTING.md
