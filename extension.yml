@@ -3,7 +3,7 @@ schema_version: "1.0"
 extension:
   id: "conduct"
   name: "Conduct Extension"
-  version: "1.0.0"
+  version: "1.0.1"
   description: "Executes a single spec-kit phase via sub-agent delegation to reduce context pollution."
   author: "twbrandon7"
   repository: "https://github.com/twbrandon7/spec-kit-conduct-ext"
